@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "production": "astralwallet",
+    "default": "astralwallet"
+  }
+}
