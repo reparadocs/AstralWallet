@@ -3,6 +3,7 @@ import {Table, TableHeader, TableRow, TableRowColumn, TableFooter, TableBody, Ta
 import './App.css';
 import AssetIssuerButton from './AssetIssuerButton.js';
 import AddAssetButton from './AddAssetButton.js';
+import SendButton from './SendButton.js';
 
 class Wallet extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class Wallet extends Component {
     var balanceBody = [];
     var hideZero = this.state.hideZero;
     this.props.balances.forEach(function(balance) {
-      console.log(balance);
+      var native = balance.asset_type === 'native' ? true : false;
       var balanceCode = balance.asset_type === 'native' ? "XLM" : balance.asset_code;
       var limit = balance.asset_type === 'native' ? "∞" : parseFloat(balance.limit).toString();
       var issuer = balance.asset_issuer ? 
@@ -34,16 +35,20 @@ class Wallet extends Component {
             <TableRowColumn>{limit}</TableRowColumn>
             <TableRowColumn>{issuer}</TableRowColumn>
             <TableRowColumn>
-              <RaisedButton
-                label="Send"
-                primary={true}
-                style={{}}
+              <SendButton 
+                native={native}
+                assetCode={balanceCode}
+                issuer={balance.asset_issuer}
+                server={this.props.server}
+                pair={this.props.pair}
+                amount={balance.balance}
+                refreshBalances={this.props.refreshBalances}
               />
             </TableRowColumn>
           </TableRow>
         );
       }
-    });
+    }.bind(this));
     return (
       <div className="App">
         <header className="App-header">

@@ -22,6 +22,7 @@ class Start extends Component {
 
         <h1>This wallet isn't "real" yet because it doesn't meet the minimum balance requirements :( </h1>
         <h3>Send at least 1 XLM to {this.props.publicKey} to make this wallet a reality!</h3>
+        <h4>If you have sent lumens to that address, be patient, wait a few seconds and then hit the 'Refresh' button :)</h4> 
         <RaisedButton
           label="Refresh"
           primary={true}

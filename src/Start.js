@@ -33,6 +33,7 @@ class Start extends Component {
         <header className="App-header">
           <h1><span role="img" aria-label="rocket">🚀</span></h1>
           <h1 className="App-title">Astral Wallet</h1>
+          <a style={{color: 'white'}} href="https://github.com/reparadocs/AstralWallet">Github</a>
         </header>
 
         <TextField
