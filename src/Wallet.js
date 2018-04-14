@@ -3,6 +3,8 @@ import {Table, TableHeader, TableRow, TableRowColumn, TableFooter, TableBody, Ta
 import './App.css';
 import AssetIssuerButton from './AssetIssuerButton.js';
 import AddAssetButton from './AddAssetButton.js';
+import AddStockButton from './AddStockButton.js';
+
 import SendButton from './SendButton.js';
 
 class Wallet extends Component {
@@ -66,6 +68,13 @@ class Wallet extends Component {
             <TableRow>
               <TableRowColumn>
                 <AddAssetButton
+                  pair={this.props.pair}
+                  server={this.props.server}
+                  refreshBalances={this.props.refreshBalances}
+                />
+              </TableRowColumn>
+               <TableRowColumn>
+                <AddStockButton
                   pair={this.props.pair}
                   server={this.props.server}
                   refreshBalances={this.props.refreshBalances}
