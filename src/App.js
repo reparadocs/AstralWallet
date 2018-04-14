@@ -34,6 +34,8 @@ class App extends Component {
   initializeWallet(privateKey, testnet) {
     if (testnet) {
       window.StellarSDK.Network.useTestNetwork();
+    } else {
+      window.StellarSDK.Network.usePublicNetwork();
     }
     try {
       var serverURL = testnet ? 'https://horizon-testnet.stellar.org' : 'https://horizon.stellar.org';
